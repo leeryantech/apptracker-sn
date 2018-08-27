@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="live_feed=true" extends="task" label="Applications" max_length="40" name="x_68146_app_tracke_applications" type="collection"/>
+    <element attributes="live_feed=true" extends="task" label="Applications" max_length="40" name="x_68146_app_tracke_applications" type="collection">
+        <element label="Company" max_length="32" name="u_company" reference="core_company" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Contact Name" max_length="40" name="u_contact" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Contact Number" max_length="40" name="u_contact_ph" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Contact Email" max_length="40" name="u_email" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Job Title" mandatory="true" max_length="40" name="u_jobtitle" type="string"/>
+    </element>
 </database>

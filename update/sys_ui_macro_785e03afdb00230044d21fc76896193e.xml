@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description/>
+        <media_type/>
+        <name>app_flow</name>
+        <scoped_name>x_68146_app_tracke_app_flow</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-27 06:37:10</sys_created_on>
+        <sys_id>785e03afdb00230044d21fc76896193e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>app_flow</sys_name>
+        <sys_package display_value="App Tracker" source="x_68146_app_tracke">ebb3c7a3db00230044d21fc7689619ba</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="App Tracker">ebb3c7a3db00230044d21fc7689619ba</sys_scope>
+        <sys_update_name>sys_ui_macro_785e03afdb00230044d21fc76896193e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-27 06:40:16</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+  <link rel="stylesheet" type="text/css" href="styles/app_flow_formatter.cssx"></link>
+  <tr>
+    <td colspan="2" width="100%" nowrap="true">
+      <div>
+	<table cellpadding="0" cellspacing="0" style="width: 100%;border:none;border-collapse:collapse" class="app_flow_formatter" role="listbox">
+	  <tr role="presentation">
+	    <g2:flow_formatter var="jvar_flows" table="$[${ref_parent}.getRecordClassName()]" current="$[${ref_parent}]" />
+            <g2:evaluate var="jvar_width" jelly="true">
+                   var size= jelly.jvar_flows.size();
+                   if(size)
+                   Math.floor(100/size);
+            </g2:evaluate>
+	    <j2:forEach items="$[jvar_flows]" var="jvar_flow">
+	    <g2:set_if var="jvar_step_status" test="$[jvar_flow.getParameter('state') == 'current']" true="step" false="false" />
+	      <td style="width:$[jvar_width]%" class="app_flow $[jvar_flow.getParameter('state')]" role="option" aria-current="$[jvar_step_status]" aria-selected="$[jvar_flow.getParameter('state') == 'current']">
+		  	  <a href="javascript:void(0);" role="presentation" aria-label="$[jvar_flow.getLabel()]">$[jvar_flow.getLabel()]</a>
+	      </td>
+	      <td width="16" height="100%"  aria-hidden="true">
+                  <img style="margin:0; padding:0px;" alt="" aria-hidden="true"
+		     src="images/chevron_$[jvar_flow.getParameter('state')]_$[jvar_flow.getParameter('next_state')].pngx" />
+	      </td>
+	    </j2:forEach>
+	  </tr>
+	</table>
+      </div>
+    </td>
+  </tr>
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>
